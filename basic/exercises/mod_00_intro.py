@@ -81,7 +81,13 @@ def isort(names):
         ['ALICE', 'BOB', 'charlie', 'dave']
     """
     # your code here
-
+    names_lower = map(str.lower, names)
+    dic = dict(zip(names_lower, names))
+    sort = sorted(names_lower)
+    return_list = []
+    for i in sort:
+        return_list.append(dic[i])
+    return return_list
 
 def main():
     print unique([1,2,3,3,2,1,4])
