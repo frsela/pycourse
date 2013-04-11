@@ -13,7 +13,8 @@ def sum_chars_text(text):
             >>> ord(c)
             99
     '''
-    pass
+    return sum(map(lambda x: ord(x), text))
+    # PROFESOR: sum(map(ord,text))
 
 
 def reverse_text_by_word(text):
@@ -22,7 +23,7 @@ def reverse_text_by_word(text):
         >>> reverse_text_by_word('Sparse is better than dense.')
         'dense. than better is Sparse'
     '''
-    pass
+    return " ".join(text.split(' ')[::-1])
 
 
 def remove_identation_multiline_string(text):
@@ -32,7 +33,8 @@ def remove_identation_multiline_string(text):
                                                   Flat is better than nested.""")
         "Complex is better than complicated. Flat is better than nested."
     '''
-    pass
+    return " ".join(map(lambda x: x.strip(' '),text.split('\n')))
+    # PROFESOR: " ".join([x.strip() for x in text.splitlines()])
 
 
 def join_str_unicode(*items):
@@ -41,7 +43,10 @@ def join_str_unicode(*items):
         >>> print join_str_unicode(u'el señor', 'de los anillos')
         'el señor de los anillos'
     '''
-    pass
+    return " ".join(map(lambda x: x.encode('utf-8'), items))
+    # PROFESOR:
+    ## ar = items[0]
+    ## " ".join([y.encode('utf-8') for y in [x.decode('utf-8') for x in ar]])
 
 
 class ModStringTestCase(unittest.TestCase):
