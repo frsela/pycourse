@@ -16,6 +16,10 @@ def minimum(a, b):
         5
         """
     # your code here
+    if a < b:
+        return a
+    else:
+        return b
 
 
 def maximum3(a, b, c):
@@ -29,6 +33,11 @@ def maximum3(a, b, c):
         13
     """
     # your code here
+    if a > b and a > c:
+        return a
+    if b > a and b > c:
+        return b
+    return c
 
 
 def istrcmp(s1, s2):
@@ -42,6 +51,7 @@ def istrcmp(s1, s2):
         False
     """
     # your code here
+    return s1.lower() == s2.lower()
 
 
 def unique(values):
@@ -55,6 +65,13 @@ def unique(values):
         [1, 2, 3, 4]
     """
     # your code here
+    d = {}
+    s = []
+    for a in values:
+        if not d.has_key(a):
+            d[a] = True
+            s.append(a)
+    return s
 
 
 def isort(names):
@@ -65,3 +82,9 @@ def isort(names):
     """
     # your code here
 
+
+def main():
+    print unique([1,2,3,3,2,1,4])
+
+if __name__ == '__main__':
+    main()
