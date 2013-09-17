@@ -9,7 +9,8 @@ def split_even_odd(numbers):
     :param numbers: iterable with numbers
     :return (even, odd) lists with corresponding values
     '''
-    even = odd = []
+    even = []
+    odd = []
     for num in numbers:
         if num % 2:
             odd.append(num)
@@ -23,8 +24,12 @@ class NumbersList(object):
     Even numbers can be retrieved at any time with even attribute,
     Odd numbers with odd attribute
     '''
-    even = []
-    odd = []
+    even = None
+    odd = None
+
+    def __init__(self):
+        self.even = []
+        self.odd = []
 
     def append_number(self, num):
         '''Add a number to its corresponding list (even or odd)
@@ -35,12 +40,16 @@ class NumbersList(object):
             self.even.append(num)
 
 
-def update_even_odd(numbers, even=[], odd=[]):
+def update_even_odd(numbers, even=None, odd=None):
     '''Update incoming even and odd numbers lists with corresponding values of numbers iterable.
     When no even or odd are provided, a default value is used.
     :param numbers: iterable with numbers
     :return (even, odd) lists with corresponding values
     '''
+    if even is None:
+        even = []
+    if odd is None:
+        odd = []
     for num in numbers:
         if num % 2:
             odd.append(num)
